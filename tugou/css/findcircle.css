@@ -110,6 +110,7 @@ body{
 	position: relative;
 	left: 4%;
 	line-height:0.32rem ;	
+	width: 96%;
 }
 .con .ul1 .li2 p:nth-child(2){
 	color: rgb(169,169,169);
