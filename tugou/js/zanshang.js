@@ -17,7 +17,7 @@ window.onload=function(){
 		startMove(gray,'opacity',90,function(){			
 				middle.style.display = "block";
 				var a = middle.offsetHeight
-				middle.style.height = 0;
+				middle.style.height = "10px";
 				startMove(middle,'height',a)
 		})
 	}
