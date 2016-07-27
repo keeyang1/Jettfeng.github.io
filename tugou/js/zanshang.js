@@ -48,12 +48,16 @@ window.onload=function(){
 		outFn()
 	}
 	
-	for (var i = 0; i < span.length; i++) {
-		span[i].addEventListener("touchstart",function(){
-			enterFn()
-			input[0].value = this.innerHTML;
-		})
-	}
+	$('.hh').on("touchstart",function(){
+		enterFn()
+		$('.middle input').eq(0).val($(this).find('span').html())
+	})
+	// for (var i = 0; i < span.length; i++) {
+	// 	span[i].addEventListener("touchstart",function(){
+	// 		enterFn()
+	// 		input[0].value = this.innerHTML;
+	// 	})
+	// }
 	
 	input[1].onclick = function(){
 		if(input[0].value==""){
