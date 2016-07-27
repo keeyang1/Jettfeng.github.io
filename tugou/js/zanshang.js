@@ -15,7 +15,7 @@ window.onload=function(){
 	function enterFn(){
 		gray.style.display = "block";
 		$(gray).fadeIn(function() {
-			middle.style.display = "block"
+			middle.style.display = "none"
 			$(middle).slideDown()
 		})
 		// startMove(gray,'opacity',90,function(){			
