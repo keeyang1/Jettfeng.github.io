@@ -16,12 +16,11 @@ window.onload=function(){
 		gray.style.display = "block";
 		startMove(gray,'opacity',90,function(){			
 				middle.style.display = "block";
-				var a = middle.offsetHeight
-				alert(a);
-				middle.style.height = 0;
-				
-		},function(){
- 				startMove(middle,'height',a)
+				$(middle).slideDown(1000)
+				// var a = middle.offsetHeight
+				// alert(a);
+				// middle.style.height = 0;
+ 			// 	startMove(middle,'height',a)
 		})
 		//middle.style.display = "block"
 	}
