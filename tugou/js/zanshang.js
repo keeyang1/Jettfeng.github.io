@@ -14,14 +14,17 @@ window.onload=function(){
 	
 	function enterFn(){
 		gray.style.display = "block";
-		startMove(gray,'opacity',90,function(){			
-				middle.style.display = "block";
-				$(middle).slideDown(1000)
-				// var a = middle.offsetHeight
-				// alert(a);
-				// middle.style.height = 0;
- 			// 	startMove(middle,'height',a)
+		$(gray).fadeIn(function() {
+			$(middle).slideDown()
 		})
+		// startMove(gray,'opacity',90,function(){			
+		// 		middle.style.display = "block";
+		// 		
+		// 		// var a = middle.offsetHeight
+		// 		// alert(a);
+		// 		// middle.style.height = 0;
+ 	// 		// 	startMove(middle,'height',a)
+		// })
 		//middle.style.display = "block"
 	}
 	
