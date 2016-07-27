@@ -13,7 +13,7 @@ window.onload=function(){
 	 }
 	
 	function enterFn(){
-		gray.style.display = "block";
+		gray.style.display = "none";
 		$(gray).fadeIn(function() {
 			middle.style.display = "none"
 			$(middle).slideDown()
