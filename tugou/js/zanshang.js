@@ -13,10 +13,10 @@ window.onload=function(){
 	 }
 	
 	function enterFn(){
-		gray.style.display = "none";
+		// gray.style.display = "none";
 		$(gray).fadeIn(function() {
-			middle.style.display = "none"
-			$(middle).slideDown()
+			// middle.style.display = "none"
+			$(middle).slideDown();
 		})
 		// startMove(gray,'opacity',90,function(){			
 		// 		middle.style.display = "block";
@@ -30,13 +30,16 @@ window.onload=function(){
 	}
 	
     function outFn(){
-    	    var a = middle.offsetHeight
-	    	startMove(middle,'height',0,function(){
-	    		startMove(gray,'opacity',0,function(){
-	    			middle.style.height = a + 'px';
-	    			middle.style.display = "none";
-	    			gray.style.display = "none"
-	    		})
+    	 //    var a = middle.offsetHeight
+	    	// startMove(middle,'height',0,function(){
+	    	// 	startMove(gray,'opacity',0,function(){
+	    	// 		middle.style.height = a + 'px';
+	    	// 		middle.style.display = "none";
+	    	// 		gray.style.display = "none"
+	    	// 	})
+	    	// })
+	    	$(middle).slideUp(function() {
+	    		$(gray).fadeOut();
 	    	})
     }
 	
