@@ -25,6 +25,7 @@ html{
 	position: absolute;
 	left: 7%;
 	top: 20%;	
+	overflow: hidden;
 	text-align: center;
 	display: none;
 	border-radius: 0.3rem;
