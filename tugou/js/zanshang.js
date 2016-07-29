@@ -6,6 +6,7 @@ window.onload=function(){
 	var span = document.querySelectorAll('.hh div span');
 	var input = document.querySelectorAll('.middle input');
 	var zan = document.querySelector('#zan')
+	var hhh = document.querySelectorAll('.hh')
 //	........................chu
 
 	div3.onclick=function(){
@@ -13,33 +14,23 @@ window.onload=function(){
 	 }
 	
 	function enterFn(){
-		// gray.style.display = "none";
-		$(gray).fadeIn(function() {
-			// middle.style.display = "none"
-			$(middle).slideDown();
+		gray.style.display = "block";
+		startMove(gray,'opacity',90,function(){			
+				middle.style.display = "block";
+				var a = middle.offsetHeight
+				middle.style.height = 0;
+				startMove(middle,'height',a)
 		})
-		// startMove(gray,'opacity',90,function(){			
-		// 		middle.style.display = "block";
-		// 		
-		// 		// var a = middle.offsetHeight
-		// 		// alert(a);
-		// 		// middle.style.height = 0;
- 	// 		// 	startMove(middle,'height',a)
-		// })
-		//middle.style.display = "block"
 	}
 	
     function outFn(){
-    	 //    var a = middle.offsetHeight
-	    	// startMove(middle,'height',0,function(){
-	    	// 	startMove(gray,'opacity',0,function(){
-	    	// 		middle.style.height = a + 'px';
-	    	// 		middle.style.display = "none";
-	    	// 		gray.style.display = "none"
-	    	// 	})
-	    	// })
-	    	$(middle).slideUp(function() {
-	    		$(gray).fadeOut();
+    	    var a = middle.offsetHeight
+	    	startMove(middle,'height',0,function(){
+	    		startMove(gray,'opacity',0,function(){
+	    			middle.style.height = a + 'px';
+	    			middle.style.display = "none";
+	    			gray.style.display = "none"
+	    		})
 	    	})
     }
 	
@@ -47,15 +38,15 @@ window.onload=function(){
 		input[0].value = ""
 		outFn()
 	}
-	
 	$('.hh').on("touchstart",function(){
 		enterFn()
 		$('.middle input').eq(0).val($(this).find('span').html())
 	})
-	// for (var i = 0; i < span.length; i++) {
-	// 	span[i].addEventListener("touchstart",function(){
+	// for (var i = 0; i < hhh.length; i++) {
+	// 	hhh[i].index = i;
+	// 	hhh[i].addEventListener("touchstart",function(){
 	// 		enterFn()
-	// 		input[0].value = this.innerHTML;
+	// 		input[0].value = span[this.index].innerHTML;
 	// 	})
 	// }
 	

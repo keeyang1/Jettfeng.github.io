@@ -38,10 +38,7 @@ function startMove(obj, attr, iTarget, fn)
 		{
 			clearInterval(obj.timer);
 			
-			if(fn)
-			{
-				fn();
-			}
+			fn && fn();
 		}
 		else
 		{
