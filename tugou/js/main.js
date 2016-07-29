@@ -4,23 +4,26 @@
 	var index = 0;
 	var $li = $('.ul1 li');
 	var timer = null;
+	var progress = 0;
 	timer = setInterval(function(){
 		index++;
 		if(index>3){
 			index=1;
+			progress=0;
 			$inner.css({
 				"left":0
 			})
 		}
 		console.log(index)
-		move()
+		//move()
+		step()
 		liFn()
 	},2000)
-	function move(){
-		$inner.animate({
-			"left":-index*$img.width()
-		},1000)
-	}
+//	function move(){
+//		$inner.animate({
+//			"left":-index*$img.width()
+//		},1000)
+//	}
 	
 	function liFn(){
 		if(index>=3){
@@ -34,6 +37,14 @@
 		$li.eq(j).css({
 			background:"red"
 		})
-		
+	}
+	function step(){
+		progress+=10;
+		$inner.css({
+			left:-progress + "px"
+		})
+		if(progress<=$img.eq(0).width()*index){
+			requestAnimationFrame(step)
+		}
 	}
 
