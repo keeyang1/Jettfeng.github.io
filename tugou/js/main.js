@@ -41,7 +41,7 @@
 	function step(){
 		progress+=10;
 		$inner.css({
-			left:-progress + "px"
+			transform:'translate3d('+(-progress)+'px,0,0)'
 		})
 		if(progress<=$img.eq(0).width()*index){
 			requestAnimationFrame(step)
