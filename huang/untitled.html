@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			border: none;
+			float: left;
+		}
+		#wrap{
+			width: 600px;
+			height: 800px;
+			background: black;
+			margin: 50px auto;
+			border: 1px solid black;
+		}
+		#header{
+			width: 600px;
+			height: 200px;
+			position: relative;
+		}
+		#time{
+			width: 300px;
+			height: 200px;
+			text-align: center;
+			line-height: 200px;
+			font-size: 30px;
+			background: green;
+			float: left;
+		}
+		#score{
+			width: 300px;
+			height: 200px;
+			text-align: center;
+			line-height: 200px;
+			font-size: 30px;
+			background: red;
+			float: left;
+		}
+		#content{
+			background: black;
+			width: 560px;
+			height: 560px;
+			margin: 20px;
+		}
+		#start{
+			width: 80px;
+			height: 35px;
+			font-size: 20px;
+			background: yellow;
+			text-align: center;
+			line-height: 35px;
+			position: absolute;
+			top: 165px;
+			left: 260px;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header">
+			<div id="start">开始</div>
+			<div id="time">剩余时间：60s</div>
+			<div id="score">分数：0</div>
+		</div>
+		<div id="content">
+		</div>
+	</div>
+</body>
+	<script type="text/javascript">
+		var content = document.getElementById('content');
+		var start = document.getElementById('start');
+		var score = document.getElementById('score');
+		var arrColor = ['red','yellow','blue','green','black','Brown','DeepSkyBlue','MediumSlateBlue','GreenYellow','YellowGreen'];
+		var pass = 0;
+		var scoreN = 0;
+		var bol = false;
+		var color_s = 0;
+		content.style.background = arrColor[rndFn(0,9)];
+		createImage();
+		start.onclick = function(){
+			if (bol) {return}
+			score.innerHTML = '';
+			scoreN = 0;
+			pass = 0;
+			createImage();
+			bol = true;
+			timeFn(5,30);					
+		}
+		//创建随机函数
+		function rndFn(min,max){
+			return parseInt(Math.random() * (max - min) + min)
+		}
+		//创建图片
+		function createImage(){
+
+			pass++;
+			content.innerHTML = '';
+			var imgnum = Math.pow(pass,2);
+			var width = content.offsetWidth/pass + "px";
+			for (var i = 0; i < imgnum; i++) {
+				var img = new Image();
+				img.src = "img/1.png";
+				img.style.width = width;
+				content.appendChild(img);
+
+
+			}
+			//随机
+			var r = rndFn(0,imgnum);
+			content.children[r].src = "img/2.png";
+      			
+		   //点击事件
+		    content.children[r].onclick = function(){
+		    	if (bol==false) {return}
+		    content.style.background = arrColor[color_s];
+			color_s++;
+		   	scoreN++;
+		  
+
+		   	for (var j = 0; j <content.children.length; j++) {
+		   		content.removeChild(content.children[0]);
+		   	}
+		   	createImage();
+		   	if (color_s>=8) {
+		   		color_s = 0
+		   	}
+		   	
+		   }
+
+		   score.innerHTML = "分数："+scoreN;
+		}
+		function timeFn(a,b){
+				bol = true;
+			 		var timer = setInterval(function(){
+						a -= 0.02;
+					if (a<=0) {
+						clearInterval(timer);
+						a = 0;
+						bol = false;
+					}
+					time.innerHTML = "剩余时间:"+ a.toFixed(2) + "s"
+				},b)
+				
+			 }
+
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
